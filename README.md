@@ -27,7 +27,7 @@ A Persona menu-inspired portfolio, structured as Model–View–Controller.
 
 Missing images hide themselves — no broken icons.
 
-The video folder inside assets are not uploaded as they exceed 500MB. I recommand downloading them online and add them inside assets in a new video folder later on. 
+Video wallpapers are tracked with Git LFS. The GitHub Pages workflow checks out the LFS files before deployment.
 
 ## Editing content
 
@@ -46,8 +46,8 @@ blocks the audio fetch and GitHub API in most browsers.
 
 ## Deploy
 
-Push the whole folder to a GitHub repo, enable Pages
-(Settings → Pages → Deploy from branch → main → / root). Done.
+Push to `main`. The GitHub Actions workflow deploys the site, including the LFS video wallpapers.
+In Settings → Pages, select GitHub Actions as the deployment source.
 
 ## Controls
 
