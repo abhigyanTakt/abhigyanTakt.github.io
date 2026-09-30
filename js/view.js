@@ -117,7 +117,7 @@ el.appendChild(span);
     s[name].scrollTop = 0;
     document.body.dataset.screen = name;
 
-    // Switch video playback to active screen only (buttery smooth performance)
+    // Load and play only the active screen's video.
     this.updateBackgroundVideos(name);
   },
 
@@ -127,6 +127,7 @@ el.appendChild(span);
       const vid = document.getElementById(`art-${s}`);
       if (!vid) return;
       if (s === name) {
+        vid.preload = "auto";
         if (s === "home") vid.playbackRate = 0.5;
         else vid.playbackRate = 1.0;
 
@@ -138,6 +139,7 @@ el.appendChild(span);
         if (p && p.catch) p.catch(() => {});
       } else {
         vid.pause();
+        vid.preload = "none";
       }
     });
   },
