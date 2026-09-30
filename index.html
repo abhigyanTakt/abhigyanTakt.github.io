@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABHIGYAN DUBEY · PORTFOLIO</title>
+<!-- Favicon / Tab Logo -->
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png?v=2">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2">
+<!-- Meta Artwork -->
+<meta property="og:title" content="ABHIGYAN DUBEY · PORTFOLIO">
+<meta property="og:description" content="Software Developer and problem-solver pursuing Engineering at COER University (2024–2028).">
+<meta property="og:image" content="assets/logo.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-screen="home" class="has-art-home has-art-projects has-art-skills has-art-about has-art-contact">
+
+<!-- Background art layers -->
+<div id="bg" aria-hidden="true">
+  <div class="bg-layer" id="bg-stripes"></div>
+  <svg class="bg-star" style="left:6%;top:8%;width:26vmax;height:26vmax" viewBox="0 0 100 100">
+    <polygon points="50,0 60,35 98,35 68,57 78,94 50,72 22,94 32,57 2,35 40,35" fill="#000"/>
+  </svg>
+  <svg class="bg-star s2" style="right:4%;bottom:6%;width:34vmax;height:34vmax" viewBox="0 0 100 100">
+    <polygon points="50,0 60,35 98,35 68,57 78,94 50,72 22,94 32,57 2,35 40,35" fill="#fff"/>
+  </svg>
+
+  <!-- Video wallpapers per-screen (all muted and looped) -->
+  <video class="menu-art" id="art-home" autoplay muted loop playsinline preload="auto">
+    <source src="assets/video/home.mp4" type="video/mp4">
+  </video>
+  <video class="menu-art" id="art-projects" muted loop playsinline preload="auto">
+    <source src="assets/video/projects.mp4" type="video/mp4">
+  </video>
+  <video class="menu-art" id="art-skills" muted loop playsinline preload="auto">
+    <source src="assets/video/skills.mp4" type="video/mp4">
+  </video>
+  <video class="menu-art" id="art-about" muted loop playsinline preload="auto">
+    <source src="assets/video/about.mp4" type="video/mp4">
+  </video>
+  <video class="menu-art" id="art-contact" muted loop playsinline preload="auto">
+    <source src="assets/video/contact.mp4" type="video/mp4">
+  </video>
+
+  <div class="bg-layer" id="bg-halftone"></div>
+  <div class="bg-layer" id="bg-vignette"></div>
+</div>
+<div id="slash" aria-hidden="true"></div>
+
+<!-- Hero art: drop your file at assets/hero.png (transparent PNG looks best) -->
+<img id="hero-art" src="assets/hero.png" alt="" onerror="this.remove()">
+
+<!-- Screen transition wipe -->
+<div id="wipe" aria-hidden="true">
+  <div class="pane p3"></div>
+  <div class="pane p2"></div>
+  <div class="pane p1"></div>
+  <div class="flash"></div>
+</div>
+
+<!-- Custom animated cursor + select sound -->
+<div id="cursor" aria-hidden="true"></div>
+<audio id="sfx-select" src="assets/sfx/select.mp3" preload="auto"></audio>
+<button id="audio-toggle" aria-label="Turn audio on">🔇</button>
+
+
+<div id="shell">
+  <div id="hud-top">
+    <div class="hud-tag">Portfolio // ABHIGYAN DUBEY</div>
+    <div class="hud-tag alt">COER UNIVERSITY · ENGINEERING (2024–2028)</div>
+  </div>
+
+  <div id="stage">
+
+    <!-- HOME -->
+    <section class="screen active" id="screen-home" aria-label="Main menu">
+      <div id="intro-eyebrow">Take a look at my work</div>
+      <h1 id="big-name">
+        <span class="ransom" data-ransom="ABHIGYAN"></span>
+        <span class="ransom" data-ransom="DUBEY"></span>
+      </h1>
+      <p id="tagline">
+        Software Developer and problem-solver currently pursuing Engineering at COER University (2024–2028).
+        Building projects daily since 15 August 2024, gaining hands-on internship experience at Codec Solution,
+        and turning ideas into impactful web applications and tools.
+      </p>
+      <nav id="menu" aria-label="Sections">
+        <button class="menu-item sel" data-target="projects">
+          <span class="ransom" data-ransom="PROJECTS"></span><span class="cursor-mark">◀</span>
+        </button>
+        <button class="menu-item" data-target="skills">
+          <span class="ransom" data-ransom="SKILLS"></span><span class="cursor-mark">◀</span>
+        </button>
+        <button class="menu-item" data-target="about">
+          <span class="ransom" data-ransom="ABOUT"></span><span class="cursor-mark">◀</span>
+        </button>
+        <button class="menu-item" data-target="contact">
+          <span class="ransom" data-ransom="CONTACT"></span><span class="cursor-mark">◀</span>
+        </button>
+      </nav>
+
+      <!-- Side Music Player -->
+      <div id="player-container">
+        <div id="player">
+          <div id="player-track">
+            <div id="album-name"></div>
+            <div id="track-name"></div>
+            <div id="track-time">
+              <div id="current-time"></div>
+              <div id="track-length"></div>
+            </div>
+            <div id="seek-bar-container">
+              <div id="seek-time"></div>
+              <div id="s-hover"></div>
+              <div id="seek-bar"></div>
+            </div>
+          </div>
+          <div id="player-content">
+            <div id="album-art">
+              <img src="assets/album-arts/1.png" class="active" id="_1" alt="Color Your Night" />
+              <img src="assets/album-arts/2.png" id="_2" alt="It's Going Down Now" />
+              <img src="assets/album-arts/3.png" id="_3" alt="Heartbeat, Heartbreak" />
+              <div id="buffer-box">Buffering ...</div>
+            </div>
+            <div id="player-controls">
+              <div class="control">
+                <div class="button" id="play-previous" title="Previous Track">
+                  <i class="fas fa-backward"></i>
+                </div>
+              </div>
+              <div class="control">
+                <div class="button" id="play-pause-button" title="Play / Pause">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="control">
+                <div class="button" id="play-next" title="Next Track">
+                  <i class="fas fa-forward"></i>
+                </div>
+              </div>
+              <div class="control">
+                <div class="button" id="play-repeat" title="Mode: Auto-Next Playlist (Click to Loop Track)">
+                  <i class="fas fa-repeat"></i>
+                  <span id="repeat-badge">1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="screen sub" id="screen-projects" aria-label="Projects">
+      <div class="screen-head"><span class="ransom" data-ransom="PROJECTS"></span></div>
+      <button class="back-hint" data-back>ESC · Back</button>
+      <div class="grid-label"><span class="bar"></span>Featured</div>
+      <div id="feat-grid" class="grid"></div>
+      <div class="grid-label"><span class="bar"></span>All repositories</div>
+      <div id="repo-status">Contacting GitHub…</div>
+      <div id="repo-grid" class="grid"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="screen sub" id="screen-skills" aria-label="Skills">
+      <div class="screen-head"><span class="ransom" data-ransom="SKILLS"></span></div>
+      <button class="back-hint" data-back>ESC · Back</button>
+      <div id="skills-body"></div>
+    </section>
+
+    <!-- ABOUT -->
+<section class="screen sub align-right" id="screen-about" aria-label="About">
+
+  <div class="screen-head">
+    <span class="ransom" data-ransom="ABOUT"></span>
+  </div>
+
+  <button class="back-hint" data-back>ESC · Back</button>
+
+  <div class="paper">
+
+    <!-- Profile photo -->
+    <figure class="about-photo">
+      <img src="assets/me.jpg" alt="Abhigyan Dubey">
+      <figcaption>ABHIGYAN DUBEY</figcaption>
+    </figure>
+
+    <!-- INTRODUCTION -->
+    <p class="quote">
+      I am a
+      <strong class="about-highlight">Software Developer and problem-solver</strong>
+      currently pursuing an
+      <strong class="about-highlight">Engineering degree at COER University (2024–2028)</strong>.
+    </p>
+
+    <br>
+
+    <!-- JOURNEY -->
+    <p>
+      I began my coding journey on
+      <strong class="about-highlight">15 August 2024</strong>
+      and have been building projects daily ever since. I enjoy turning ideas into working applications and consistently pushing myself to improve every day.
+    </p>
+
+    <br>
+
+    <!-- INTERNSHIP EXPERIENCE -->
+    <p>
+      I am gaining hands-on industry experience through my internship at
+      <strong class="about-highlight">Codec Solution</strong>,
+      where I tackle key development tasks, build practical tools, and learn industry best practices.
+    </p>
+
+    <br>
+
+    <!-- PASSION & FOCUS -->
+    <p>
+      Passionate about learning new technologies, writing clean code, and creating tools that solve real problems.
+      Currently, I am focusing on:
+      <br>
+      • <strong class="about-highlight">Web Development</strong>
+      <br>
+      • <strong class="about-highlight">Projects with new ideas & AI integrations</strong>
+    </p>
+
+    <br>
+
+    <!-- PROJECTS -->
+    <p>
+      Notable projects include
+      <strong class="about-highlight">FakeSpot AI</strong>
+      (an AI system powered by GPT-4o-mini to detect fraudulent reviews using NLP and image verification),
+      <strong class="about-highlight">FitPose</strong>
+      (webcam-based computer vision pose tracking for live workout analysis), and a
+      <strong class="about-highlight">Personalized Guidance Chatbot</strong>
+      utilizing vector embeddings.
+    </p>
+
+    <br>
+
+    <!-- COLLABORATION & GOALS -->
+    <p>
+      Open to learning opportunities, collaborations, and connecting with fellow developers, mentors, and tech enthusiasts. Let’s grow together in this exciting tech journey! 🚀
+    </p>
+
+  </div>
+
+  <!-- CV BUTTON -->
+  <a class="cv-btn"
+     href="assets/resume/Abhigyan_Dubey_Resume.pdf"
+     download="Abhigyan_Dubey_Resume.pdf">
+    <span>⬇ Download my CV (PDF)</span>
+  </a>
+
+</section>
+    <!-- CONTACT -->
+    <section class="screen sub align-right" id="screen-contact" aria-label="Contact">
+      <div class="screen-head"><span class="ransom" data-ransom="CONTACT"></span></div>
+      <button class="back-hint" data-back>ESC · Back</button>
+      <div class="paper" style="max-width:620px">
+        <p>I'm open to <strong>software development opportunities</strong>, collaborative projects,
+        and connecting with fellow developers and mentors. Drop me a message below or reach out directly:</p>
+      </div>
+      <div class="contact-list">
+        <a class="contact-chip" href="https://github.com/abhigyanTakt" target="_blank" rel="noopener"><span>GitHub ↗</span></a>
+        <a class="contact-chip" href="https://www.linkedin.com/in/abhigyan-dubey-5468bb320/" target="_blank" rel="noopener"><span>LinkedIn ↗</span></a>
+        <a class="contact-chip" href="assets/resume/Abhigyan_Dubey_Resume.pdf" download="Abhigyan_Dubey_Resume.pdf"><span>CV ⬇</span></a>
+      </div>
+
+      <!-- Message form — relayed to your inbox via formsubmit.co.
+           NOTE: the first-ever submission emails you a one-time activation link. -->
+      <form id="contact-form" class="paper" style="max-width:620px" novalidate>
+        <div class="form-head">Send me a message</div>
+        <label class="field">
+          <span>Name</span>
+          <input type="text" name="name" required maxlength="100" autocomplete="name">
+        </label>
+        <label class="field">
+          <span>Your email</span>
+          <input type="email" name="email" required maxlength="150" autocomplete="email">
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" required rows="5" maxlength="3000"></textarea>
+        </label>
+        <!-- honeypot: bots fill this, humans never see it -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off"
+               style="position:absolute;left:-5000px" aria-hidden="true">
+        <div class="form-foot">
+          <button type="submit" class="cv-btn form-send"><span>Send it ➤</span></button>
+          <div id="form-status" role="status"></div>
+        </div>
+      </form>
+    </section>
+
+  </div>
+
+  <div id="hud-bottom">
+    <span><span class="key">↑↓</span>Select</span>
+    <span><span class="key">Enter</span>Confirm</span>
+    <span><span class="key">Esc</span>Back</span>
+    <span style="margin-left:auto;opacity:.8" id="clock"></span>
+  </div>
+</div>
+
+<!-- MVC: model = data, view = DOM, controller = events -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/player.js?v=2.2" defer></script>
+<script src="js/model.js?v=2.2" defer></script>
+<script src="js/view.js?v=2.2" defer></script>
+<script src="js/controller.js?v=2.2" defer></script>
+</body>
+</html>
